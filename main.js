@@ -41,8 +41,14 @@ function generatePassword(lower, upper, number, symbol, length) {
         return "";
     }
     // Loop over length and call the generator function for each parameter.
-    
+    for (let i = 0; i < length; i += typesCount) {
+        typesArray.forEach(type => {
+            const functionName = Object.keys(type)[0];
+            generatedPassword += randomFunction[functionName]();
+        })
+    }
     // Adds the final password to the password variable and returns the result.
+
 }
 
 // Function to generate random lowercase.
