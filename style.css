@@ -47,12 +47,15 @@ input[type=checkbox] {
 	letter-spacing: 1px;
 	padding: 12px 10px;
 	height: 50px;
-	width: 100%;
+    width: 100%;
 }
 
 .resultContainer #result {
   	word-wrap: break-word;
-	max-width: calc(100% - 40px);
+    max-width: calc(100% - 40px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .resultContainer .btn {

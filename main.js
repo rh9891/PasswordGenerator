@@ -53,7 +53,7 @@ function generatePassword(lower, upper, number, symbol, length) {
     const typesArray = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0]);
 
     if (typesCount === 0) {
-        return "";
+        return alert("Please select at least one criterion for your password.") || "";
     }
     // Loop over length and call the generator function for each parameter.
     for (let i = 0; i < length; i += typesCount) {
