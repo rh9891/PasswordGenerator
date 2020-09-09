@@ -52,15 +52,15 @@ THEN the password will be copied to the clipboard.
 
 ## Preview of the Password Generator
 
-![Password Generator Landing Page]()
+![Password Generator Landing Page](assets/images/passwordGeneratorLandingPage.png)
 
 The following animation demonstrates the application functionality:
 
-![Password Generator Functionality Preview]()
+![Password Generator Functionality Preview](assets/images/passwordGeneratorFunctionalityPreview.gif)
 
 ## Links
-- [Deployed Application]()
-- [Github Repository]()
+- [Deployed Application](https://rh9891.github.io/PasswordGenerator)
+- [Github Repository](https://github.com/rh9891/PasswordGenerator)
 
 ## License
 
