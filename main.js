@@ -23,7 +23,7 @@ generateElement.addEventListener("click", () => {
     const hasNumber = numbersElement.checked;
     const hasSymbol = symbolsElement.checked;
 
-    resultElement.innerText = generatePassword(hasLower, hasNumber, hasSymbol, hasUpper, length);
+    resultElement.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
 });
 
 // Function to generate password.
@@ -48,7 +48,8 @@ function generatePassword(lower, upper, number, symbol, length) {
         })
     }
     // Adds the final password to the password variable and returns the result.
-
+    const finalPassword = generatedPassword.slice(0, length);
+    return finalPassword;
 }
 
 // Function to generate random lowercase.
