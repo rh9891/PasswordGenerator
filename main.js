@@ -15,6 +15,7 @@ const randomFunction = {
     symbol: getRandomSymbol
 };
 
+// Event listener.
 generateElement.addEventListener("click", () => {
     const length = +lengthElement.value;
     const hasLower = lowercaseElement.checked;
@@ -22,8 +23,27 @@ generateElement.addEventListener("click", () => {
     const hasNumber = numbersElement.checked;
     const hasSymbol = symbolsElement.checked;
 
-    console.log(hasLower, hasNumber, hasSymbol, hasUpper);
-})
+    resultElement.innerText = generatePassword(hasLower, hasNumber, hasSymbol, hasUpper, length);
+});
+
+// Function to generate password.
+function generatePassword(lower, upper, number, symbol, length) {
+    // Initializing the password variable. Creates a string that will be continuously built upon, dependent on what the user chooses as their password parameters.
+    let generatedPassword = "";
+    // Filters out the unchecked password parameters.
+    const typesCount = lower + upper + number + symbol;
+    console.log("typesCount: ", typesCount);
+
+    const typesArray = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0]);
+    console.log("typesArray", typesArray);
+
+    if (typesCount === 0) {
+        return "";
+    }
+    // Loop over length and call the generator function for each parameter.
+    
+    // Adds the final password to the password variable and returns the result.
+}
 
 // Function to generate random lowercase.
 function getRandomLower() {
