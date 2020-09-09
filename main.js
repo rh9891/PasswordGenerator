@@ -26,16 +26,31 @@ generateElement.addEventListener("click", () => {
     resultElement.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
 });
 
+// Function to copy password to clipboard.
+clipboardElement.addEventListener("click", () => {
+    const textarea = document.createElement("textarea");
+    const password = resultElement.innerText;
+
+    if (!password) {
+        return;
+    }
+
+    textarea.value = password;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+    alert("Password copied to clipboard!");
+})
+
 // Function to generate password.
 function generatePassword(lower, upper, number, symbol, length) {
     // Initializing the password variable. Creates a string that will be continuously built upon, dependent on what the user chooses as their password parameters.
     let generatedPassword = "";
     // Filters out the unchecked password parameters.
     const typesCount = lower + upper + number + symbol;
-    console.log("typesCount: ", typesCount);
 
     const typesArray = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0]);
-    console.log("typesArray", typesArray);
 
     if (typesCount === 0) {
         return "";
@@ -46,11 +61,11 @@ function generatePassword(lower, upper, number, symbol, length) {
             const functionName = Object.keys(type)[0];
             generatedPassword += randomFunction[functionName]();
         })
-    }
+    };
     // Adds the final password to the password variable and returns the result.
     const finalPassword = generatedPassword.slice(0, length);
     return finalPassword;
-}
+};
 
 // Function to generate random lowercase.
 function getRandomLower() {
